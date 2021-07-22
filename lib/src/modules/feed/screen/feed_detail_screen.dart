@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:yam_stack/shared/constants/color.dart';
 import 'package:yam_stack/shared/constants/font.dart';
@@ -10,9 +11,8 @@ import 'package:yam_stack/src/modules/feed/controller/feed_controller.dart';
 
 class FeedDetailScreen extends StatelessWidget {
 
-  final FeedController controller = Get.arguments;
+  final FeedController controller = Get.arguments[0];
 
-  get color545454 => null;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class FeedDetailScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
             title: BackButtonAppBar(
-              backButtonNavTitle: "여기가까워",
+              backButtonNavTitle: Get.arguments[1],
             ),
           ),
           Obx(() => SliverList(
@@ -42,10 +42,7 @@ class FeedDetailScreen extends StatelessWidget {
                     Container(
                         width: 54.0,
                         height: 54.0,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                fit: BoxFit.fill, image: NetworkImage("")))),
+                        child: SvgPicture.asset("assets/icons/디저트.svg")),
                     SizedBox(
                       width: 13,
                     ),
@@ -64,7 +61,7 @@ class FeedDetailScreen extends StatelessWidget {
                           children: [
                             Text(
                               controller.restaurantListResponse.value
-                                  .content![index]!.restaurant!.name!,
+                                  .content![index]!.restaurant!.category2depth!,
                               style: TextStyle(
                                   fontFamily: FontName.notoSansRegular,
                                   fontSize: 16,
@@ -82,7 +79,8 @@ class FeedDetailScreen extends StatelessWidget {
                               width: 9,
                             ),
                             Text(
-                              "0.5km",
+                              "${controller.restaurantListResponse.value
+                                  .content![index]!.dist}km",
                               style: TextStyle(
                                   fontFamily: FontName.notoSansRegular,
                                   fontSize: 16,
@@ -123,8 +121,8 @@ class FeedDetailScreen extends StatelessWidget {
               ),
             );
           },
-                  childCount:
-                              controller.restaurantListResponse.value.content!.length))
+                  childCount: controller.restaurantListResponse.value.content != null ?
+                              controller.restaurantListResponse.value.content!.length : 0))
           )],
       ),
     );

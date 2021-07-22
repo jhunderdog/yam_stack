@@ -29,8 +29,8 @@ class FeedController extends GetxController {
   */
 
 
-  List typeList = ["여기 가까워", "여기갈래", "여긴 강추", "여긴 가봤어"].obs;
-  List<RestaurantResponse> restaurantResponseList = [];
+  RxList typeList = ["여기 가까워", "여기갈래", "여긴 강추", "여긴 가봤어"].obs;
+  var restaurantResponseList = [].obs;
   var nearRestaurantListResponse = RestaurantResponse().obs;
   var wantRestaurantListResponse = RestaurantResponse().obs;
   var recommendRestaurantListResponse = RestaurantResponse().obs;
@@ -53,6 +53,8 @@ class FeedController extends GetxController {
     restaurantList("done");
 
 
+
+
     debounce(mode, restaurantModeList, time: Duration(microseconds: 500));
     print("feed init");
   }
@@ -70,6 +72,24 @@ class FeedController extends GetxController {
     super.onClose();
   }
 
+
+
+  getModeName(String modeName) {
+    switch (modeName) {
+      case "여기 가까워":
+        mode.value = "near";
+        break;
+      case "여기갈래":
+        mode.value = "want";
+        break;
+      case "여긴 강추":
+        mode.value = "recommend";
+        break;
+      case "여긴 가봤어":
+        mode.value = "done";
+        break;
+    }
+  }
 
   //----------------------------------------------
   /* 3. 식당
@@ -110,6 +130,9 @@ class FeedController extends GetxController {
 
 
   Future<void> restaurantModeList(String mode) async {
+    print("모드는? ${mode}");
+
+
     final res = await apiRepository.postRestaurantList(
         restaurantListPage,
         restaurantListSize,

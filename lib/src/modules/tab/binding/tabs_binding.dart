@@ -17,8 +17,9 @@ class TabBinding implements Bindings {
         () => ListController(apiRepository: Get.find()));
     Get.lazyPut<FeedController>(
         () => FeedController(apiRepository: Get.find()));
-    // Get.lazyPut<ProfileController>(
-    //     () => ProfileController(apiRepository: Get.find()));
+     // Get.lazyPut<ProfileController>(
+     //     () => ProfileController(apiRepository: Get.find()));
+    Get.put(FeedController(apiRepository: Get.find()));
     Get.put(ProfileController(apiRepository: Get.find()));
     //Get.put(ListController(apiRepository: Get.find()));
   }

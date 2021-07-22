@@ -39,8 +39,6 @@ class TabsController extends GetxController {
   void switchTab(index) {
     var tab = _getCurrentTab(index);
     currentTab.value = tab;
-    update();
-
   }
 
   int getCurrentIndex(MainTabs tab) {

@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:yam_stack/src/modules/feed/screen/feed_detail_screen.dart';
+import 'package:yam_stack/src/modules/feed/screen/feed_screen.dart';
 import 'package:yam_stack/src/modules/list/screen/list_add_screen.dart';
 import 'package:yam_stack/src/modules/splash/binding/splash_binding.dart';
 import 'package:yam_stack/src/modules/tab/binding/tabs_binding.dart';
@@ -40,7 +42,8 @@ class AppPages {
         page: () => Tab(),
         binding: TabBinding(),
         children: [
-          GetPage(name: Routes.LISTADDSCREEN, page: () => ListAddScreen())
+          GetPage(name: Routes.LISTADDSCREEN, page: () => ListAddScreen()),
+          GetPage(name: Routes.FEEDDETAILSCREEN, page: () => FeedDetailScreen())
 
 
         ])

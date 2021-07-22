@@ -8,3 +8,5 @@ const colorEEEEEE = Color(0xFFEEEEEE);
 const colorFFFFFF = Color(0xFFFFFFFF);
 const colorFFD74A = Color(0xFFFFD74A);
 const colorFF3535 = Color(0xFFFF3535);
+const color545454 = Color(0xFF545454);
+const color959595 = Color(0xFF959595);
