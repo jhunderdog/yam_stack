@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:yam_stack/src/binding/list_binding.dart';
-import 'package:yam_stack/src/binding/tabs_binding.dart';
-import 'package:yam_stack/src/pages/list_screen.dart';
-import 'package:yam_stack/tab.dart';
-
-import 'package:yam_stack/src/binding/auth_binding.dart';
-import 'package:yam_stack/src/binding/splash_binding.dart';
-import 'package:yam_stack/src/pages/auth_screen.dart';
-import 'package:yam_stack/src/pages/login_screen.dart';
-import 'package:yam_stack/src/pages/register_screen.dart';
-import 'package:yam_stack/src/pages/splash_screen.dart';
+import 'package:yam_stack/src/modules/list/screen/list_add_screen.dart';
+import 'package:yam_stack/src/modules/splash/binding/splash_binding.dart';
+import 'package:yam_stack/src/modules/tab/binding/tabs_binding.dart';
+import 'package:yam_stack/src/modules/auth/binding/auth_binding.dart';
+import 'package:yam_stack/src/modules/auth/screen/auth_screen.dart';
+import 'package:yam_stack/src/modules/auth/screen/login_screen.dart';
+import 'package:yam_stack/src/modules/auth/screen/register_screen.dart';
+import 'package:yam_stack/src/modules/auth/screen/verification_complete_screen.dart';
+import 'package:yam_stack/src/modules/auth/screen/verification_screen.dart';
+import 'package:yam_stack/src/modules/splash/screen/splash_screen.dart';
+import 'package:yam_stack/src/modules/tab/screen/tab.dart';
 
 part 'app_routes.dart';
 
@@ -29,8 +29,20 @@ class AppPages {
       children: [
         GetPage(name: Routes.REGISTER, page: () => RegisterScreen()),
         GetPage(name: Routes.LOGIN, page: () => LoginScreen()),
+        GetPage(name: Routes.VERIFICATION, page: () => VerificationScreen()),
+        GetPage(
+            name: Routes.VERIFICATIONCOMPLETE,
+            page: () => VerificationCompleteScreen())
       ],
     ),
-    GetPage(name: Routes.HOME, page: () => Tab(), binding: TabBinding())
+    GetPage(
+        name: Routes.HOME,
+        page: () => Tab(),
+        binding: TabBinding(),
+        children: [
+          GetPage(name: Routes.LISTADDSCREEN, page: () => ListAddScreen())
+
+
+        ])
   ];
 }

@@ -13,7 +13,7 @@ class GalleryState extends GetxController {
     _localImageProvider = LocalImageProvider();
     _hasPermission = await _localImageProvider!.initialize();
     if (_hasPermission) {
-      _images = await _localImageProvider!.findLatest(10000);
+      _images = await _localImageProvider!.findLatest(10);
     }
     update();
     return true;

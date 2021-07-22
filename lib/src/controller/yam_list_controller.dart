@@ -1,14 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yam_stack/src/models/response/yam_list_response.dart';
-
 
 class YamListController extends GetxController {
   // final ApiRepository apiRepository;
   // YamListController({required this.apiRepository});
 
-  var mylist = [YamListResponse()];
+  var mylist = YamListResponse().obs;
 
   @override
   void onInit() {

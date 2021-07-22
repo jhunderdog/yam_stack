@@ -2,12 +2,14 @@ import 'dart:convert';
 
 class RegisterResponse {
   RegisterResponse({
-    required this.id,
-    required this.token,
+    required this.message,
+    required this.code,
+    required this.status
   });
 
-  int id;
-  String token;
+  String message;
+  String code;
+  int status;
 
   factory RegisterResponse.fromRawJson(String str) =>
       RegisterResponse.fromJson(json.decode(str));
@@ -16,12 +18,14 @@ class RegisterResponse {
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
       RegisterResponse(
-        id: json["id"],
-        token: json["message"],
+        message: json["message"],
+        code: json["code"],
+          status : json["status"]
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "token": token,
+        "message": message,
+        "code": code,
+        "status" : status
       };
 }

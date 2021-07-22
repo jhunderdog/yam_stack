@@ -22,11 +22,11 @@ void handleErrorStatus(Response response) {
   switch (response.statusCode) {
     case 400:
       final message = ErrorResponse.fromJson(response.body);
-      CommonWidget.toast(message.error);
+      CommonWidget.toast(message.message);
       break;
     default:
       final message = ErrorResponse.fromJson(response.body);
-      CommonWidget.toast(message.error);
+      CommonWidget.toast(message.message);
   }
 
   return;

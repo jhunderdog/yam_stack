@@ -32,18 +32,18 @@ class KakaoListModel {
   });
 
   static KakaoListModel fromJson(Map<String, dynamic> json) => KakaoListModel(
-    place_name: json['place_name'],
-    id: json['id'],
-    category_name: json['category_name'],
-    category_group_code: json['category_group_code'],
-    category_group_name: json['category_group_name'],
-    phone: json['phone'],
-    address_name: json['address_name'],
-    road_address_name: json['road_address_name'],
-    x: json['x'],
-    y: json['y'],
-    place_url: json['place_url'],
-  );
+        place_name: json['place_name'],
+        id: json['id'],
+        category_name: json['category_name'],
+        category_group_code: json['category_group_code'],
+        category_group_name: json['category_group_name'],
+        phone: json['phone'],
+        address_name: json['address_name'],
+        road_address_name: json['road_address_name'],
+        x: json['x'],
+        y: json['y'],
+        place_url: json['place_url'],
+      );
 }
 
 class KakaoListModelApi {
@@ -61,7 +61,8 @@ class KakaoListModelApi {
     final response = await http.get(
       url,
       headers: {
-        HttpHeaders.authorizationHeader: "KakaoAK",
+        HttpHeaders.authorizationHeader:
+            "KakaoAK a6097c6ae102a0f29156a7bd2d373c92",
       },
     );
     print(response.statusCode);

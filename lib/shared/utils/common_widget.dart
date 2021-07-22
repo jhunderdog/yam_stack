@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:yam_stack/shared/constants/font.dart';
 
 class CommonWidget {
   static AppBar appBar(
@@ -21,7 +22,7 @@ class CommonWidget {
       centerTitle: true,
       title: Text(
         title,
-        style: TextStyle(color: color, fontFamily: 'Rubik'),
+        style: TextStyle(color: color, fontFamily: FontName.notoSansRegular),
       ),
       backgroundColor: Colors.transparent,
       elevation: 0.0,

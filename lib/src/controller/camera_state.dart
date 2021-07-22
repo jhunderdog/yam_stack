@@ -32,7 +32,8 @@ class CameraState extends GetxController {
 
   void setCameraDescription(CameraDescription cameraDescription) {
     _cameraDescription = cameraDescription;
-    _controller = CameraController(_cameraDescription!, ResolutionPreset.medium);
+    _controller =
+        CameraController(_cameraDescription!, ResolutionPreset.medium);
   }
 
   Future<bool> initialize() async {
@@ -44,7 +45,7 @@ class CameraState extends GetxController {
     }
   }
 
-  CameraController? get controller => _controller;
-  CameraDescription? get description => _cameraDescription;
+  CameraController get controller => _controller!;
+  CameraDescription get description => _cameraDescription!;
   bool get isReadyToTakePhoto => _readyTakePhoto;
 }
