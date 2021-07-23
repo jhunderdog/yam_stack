@@ -64,7 +64,7 @@ class VerificationCompleteScreen extends StatelessWidget {
                 elevationWidth: 0,
                 buttonColor: colorFFD74A,
                 pressed: () {
-                  Get.offAndToNamed(Routes.HOME);
+                  Get.offAllNamed(Routes.HOME);
                 }),
           )
         ],

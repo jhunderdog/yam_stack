@@ -87,7 +87,7 @@ class AuthController extends GetxController {
 
       print("$res 결과는?");
       if (res!.status == 200) {
-        Get.offAndToNamed(Routes.AUTH + Routes.VERIFICATION, arguments: [
+        Get.offAllNamed(Routes.AUTH + Routes.VERIFICATION, arguments: [
           AuthController(apiRepository: Get.find()),
           registerEmailController.text
         ]);
@@ -113,7 +113,7 @@ class AuthController extends GetxController {
       if (res!.message.isNotEmpty) {
         prefs.setString(StorageConstants.accessToken, res.accessToken);
         prefs.setString(StorageConstants.refreshToken, res.refreshToken);
-        Get.offAndToNamed(Routes.HOME);
+        Get.offAllNamed(Routes.HOME);
       }
     }
   }
